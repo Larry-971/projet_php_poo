@@ -5,7 +5,7 @@ class Requete {
     //Variable d'instance $connect afin de récupérer ma connexion
     protected $connect;
 
-    //Constructeur afin d'appeler ma connection
+    //Constructeur afin d'appeler ma connection à chaque instanciation de ma class Requete
     public function __construct($connect){
         $this->connect = $connect;
     }
@@ -100,7 +100,31 @@ class Requete {
             }
         }
         
+    } //Fin de la méthode
+
+    /************************Méthode pour mise à jour ***************************/
+    public function maj(){
+
+        if(isset($_GET["Id"])){
+            $id = $_GET["Id"];
+            $sql = "SELECT * FROM vetements WHERE Id = ?";
+            $res = $this->connect->prepare($sql);
+            $res->execute(array($id));
+            //Affiche données
+            $donnees = $res->fetch();
+
+        }
+        return $donnees;
+        
+        //MAJ
+        /*if(isset($_GET["Id"])){
+            $id = $_GET["Id"];
+            $sql = "UPDATE vetements SET Nom = ?, Modele = ?, Marque = ?, Photo = ?, Prix = ?, Pays = ?, Description = ? WHERE Id = ?";
+            $res = $this->connect->prepare($sql);
+            $res->execute(array($nom, $modele, $marque, $photo, $prix, $pays, $description, $id));
+        }*/
     }
+
 }
 
 ?>

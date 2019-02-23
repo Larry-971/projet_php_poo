@@ -46,7 +46,7 @@ require_once("../partials/header.php");
                 <td><?php echo $d->getPays(); ?></td>
                 <td><?php echo $d->getDescription(); ?></td>
                 <td>
-                    <a href="editer.php?Id=<?php echo $d->getId(); ?>" class="btn btn-primary">Modifier</a>
+                    <a href="maj.php?Id=<?php echo $d->getId(); ?>" class="btn btn-primary">Modifier</a>
                     <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer le vêtement : <?php echo  $d->getNom() .' ' .  $d->getMarque() ?> ?')" href="supprimer.php?Id=<?php echo $d->getId(); ?>" class="btn btn-danger">Supprimer</a>
                 </td>
             </tr>
@@ -54,7 +54,7 @@ require_once("../partials/header.php");
     </tbody>    
 </table>
 
-<!-- Modal : Formulaire pour nouveau produit -->
+<!-- Modal : Formulaire d'ajout de nouveau produit -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -75,17 +75,16 @@ require_once("../partials/header.php");
                 </div>
                 <div class="form-group col-md-6">
                     <label for="modele"><b><span>*</span>Modele</b></label><br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="modele" id="homme" value="Homme" required>
-                        <label class="form-check-label" for="homme">Homme</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="modele" id="femme" value="Femme">
-                        <label class="form-check-label" for="femme" required>Femme</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="modele">Modele</label>
+                        </div>
+                        <select class="custom-select" id="modele" name="modele" required>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                        </select>
                     </div>
                 </div>
-                <!--  -->
-                
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -100,7 +99,7 @@ require_once("../partials/header.php");
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="prix"><b><span>*</span>Prix</b></label>
-                    <input type="number" id="prix" name="prix" class="form-control" placeholder="Entrez le prix" required>
+                    <input type="number" id="prix" max="100000" name="prix" class="form-control" placeholder="Entrez le prix" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="pays"><b><span>*</span>Pays</b></label>
