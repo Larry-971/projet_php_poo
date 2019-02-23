@@ -74,9 +74,18 @@ require_once("../partials/header.php");
                     <input type="text" id="nom" name="nom" class="form-control" placeholder="Entrez le nom" maxlength="30" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="modele"><b><span>*</span>Modele</b></label>
-                    <input type="text" id="modele" name="modele" class="form-control" placeholder="Entrez votre modele" maxlength="30" required>
+                    <label for="modele"><b><span>*</span>Modele</b></label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="modele" id="homme" value="Homme" required>
+                        <label class="form-check-label" for="homme">Homme</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="modele" id="femme" value="Femme">
+                        <label class="form-check-label" for="femme">Femme</label>
+                    </div>
                 </div>
+                <!--  -->
+                
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
