@@ -41,8 +41,8 @@ require_once("../partials/header.php");
                 <td><?php echo $d->getNom(); ?></td>
                 <td><?php echo $d->getModele(); ?></td>
                 <td><?php echo $d->getMarque(); ?></td>
-                <td><?php echo $d->getPhoto(); ?></td>
-                <td><?php echo $d->getPrix(); ?></td>
+                <td><img src="../images/<?php echo $d->getPhoto(); ?>" alt="image_du_vetement" width="100" heigth="100"/> </td>
+                <td><?php echo $d->getPrix(); ?> €</td>
                 <td><?php echo $d->getPays(); ?></td>
                 <td><?php echo $d->getDescription(); ?></td>
                 <td>
@@ -81,7 +81,7 @@ require_once("../partials/header.php");
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="modele" id="femme" value="Femme">
-                        <label class="form-check-label" for="femme">Femme</label>
+                        <label class="form-check-label" for="femme" required>Femme</label>
                     </div>
                 </div>
                 <!--  -->
