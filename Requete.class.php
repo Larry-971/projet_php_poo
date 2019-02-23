@@ -10,7 +10,8 @@ class Requete {
         $this->connect = $connect;
     }
 
-    //Methode pour afficher mes données
+    /****************************** Methode pour afficher mes données *****************/
+    
     public function affiche_donnees(){
         //Tableau pour mettre les données récupérées
         $donnees = [];
@@ -38,8 +39,52 @@ class Requete {
             array_push($donnees, $vetement);
         }
         return $donnees;
+    } //Fin de la méthode
 
-    }
+    /********************* Méthode pour ajouter nouveau vêtement *******************/
+
+    public function ajout_vetement(){
+
+        //Traitement pour la soumission
+        if(isset($_POST["enregistrer"])){
+
+            //Prendre un champs pour faire valider du coté serveur --> la marque
+            if(isset($_POST) && isset($_FILES["photo"]) && !empty($_POST["marque"])){
+
+                /* Traitement de la photo */
+                $file_name = $_FILES["photo"]["name"]; // --> recupère le nom de la photo
+                $tmp_name = $_FILES["photo"]["tmp_name"]; // --> recupère le chemin de stockage temporaire
+                $destination = "images/$file_name"; // --> nouveau chemin de stockage de l'image
+
+                //on va déplacer l'image de l'emplacement temporaire à notre dossier image
+                move_uploaded_file($file_name, $destination); //(nom de l'emplacement temporaire, la destination)
+
+                $nom = htmlspecialchars(trim(addslashes($_POST["nom"])));
+                $modele = htmlspecialchars(trim(addslashes($_POST["modele"])));
+                $marque = htmlspecialchars(trim(addslashes($_POST["marque"])));
+                //Transtypage du prix en (double) comme dans la base de donnée
+                $prix = (double)htmlspecialchars(trim(addslashes($_POST["prix"])));
+                $pays = htmlspecialchars(trim(addslashes($_POST["pays"])));
+                $description = trim(addslashes($_POST["description"]));
+            }
+        }
+        //Requete d'insertion de nouvel donnée
+        $sql = "INSERT INTO vetements(nom, modele, marque, photo, prix, pays, description) VALUES(?,?,?,?,?,?,?)";
+        
+        //Préaparation de la requete
+        $res = $this->connect->prepare($sql);
+
+        //Exécution de la requete avec pour parametre les variables récupérer via $_POST
+        $ok = $res->execute(array($nom, $modele, $marque, $file_name, $prix, $pays, $description));
+
+        //Vérification et notification de l'insertion
+        if($ok){
+            header("Location:vetements.php");
+        }else{
+            echo"Erreur d'insertion...";
+        }
+
+    } //Fin de la méthode
 
 }
 
