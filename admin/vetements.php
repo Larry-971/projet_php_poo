@@ -47,7 +47,7 @@ require_once("../partials/header.php");
                 <td><?php echo $d->getDescription(); ?></td>
                 <td>
                     <a href="editer.php?Id=<?php echo $d->getId(); ?>" class="btn btn-primary">Modifier</a>
-                    <a href="delete.php?Id=<?php echo $d->getId(); ?>" class="btn btn-danger">Supprimer</a>
+                    <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer le vêtement : <?php echo  $d->getNom() .' ' .  $d->getMarque() ?> ?')" href="supprimer.php?Id=<?php echo $d->getId(); ?>" class="btn btn-danger">Supprimer</a>
                 </td>
             </tr>
         <?php } ?>
@@ -67,7 +67,7 @@ require_once("../partials/header.php");
       </div>
       <div class="modal-body">
         <!-- Formulaire -->
-        <form action="insert.php" method="POST" enctype="multipart/form-data">
+        <form action="ajout.php" method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nom"><b><span>*</span>Nom</b></label>

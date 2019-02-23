@@ -86,6 +86,21 @@ class Requete {
 
     } //Fin de la méthode
 
+    /************************Méthode pour supprimé ***************************/
+
+    public function supprimer($id){
+        if(isset($_GET["Id"])){
+            $id = $_GET["Id"];
+            $sql = "DELETE FROM vetements WHERE Id = $id";
+            $ok = $this->connect->exec($sql);
+            if($ok){
+                header("Location:vetements.php");
+            }else{
+                echo"Erreur lors de la suppression...";
+            }
+        }
+        
+    }
 }
 
 ?>
