@@ -8,11 +8,7 @@ if(isset($_POST["connexion"])){
 
     //Consommation de ma méthode
     $connexion->login();
-    //header("../admin/vetements.php");
-//    var_dump($_POST);
-
 }
-
 
 ?>
 

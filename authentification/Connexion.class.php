@@ -28,7 +28,9 @@ class Connexion {
             //Ouverture d'une session pour la personne connecté
             session_start();
             //On stock ses données dans une variable superglboale : $_SESSION
-            $_SESSION["auth"]["pseudo"]; 
+            $_SESSION["auth"]["pseudo"] = $pseudo;
+            $_SESSION["auth"]["pass"] = $pass;
+             
             header("Location:../admin/vetements.php");
         }else{
             echo"Erreur";

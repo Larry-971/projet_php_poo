@@ -20,6 +20,6 @@
     <div class="container">
     <ul class="nav nav-pills nav-justified">
         <li class="nav-item">
-            <a class="nav-link" href="#">Déconnexion</a>
+            <a class="nav-link" href="../authentification/deconnexion.php">Déconnexion</a>
         </li>
     </ul>

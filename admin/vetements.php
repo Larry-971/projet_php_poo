@@ -1,10 +1,9 @@
 <?php 
-//Vérification qu'il y une session de démarée
+
+// Sécurisation du fichier vetements.php (si la session n'existe pas on y a pas accès)
 require_once("../authentification/verification.php");
 
-//Démmarage de la session pour l'employé qui c'est connecté
-session_start();
-
+var_dump($_SESSION);
 //Appel de ma connection et de mes différentes class
 require_once("connect.php");
 require_once("../Vetement.class.php");
@@ -15,9 +14,6 @@ $requete = new Requete($connect);
 
 //Consommation de ma méthode affiche_donnees() de ma class Requete afin d'afficher mes données sur ma page
 $data = $requete->affiche_donnees(); 
-
-//Consommation de ma méyhode ajout_vetement
-
 
 //Inclusion de mon header
 require_once("../partials/header.php");
