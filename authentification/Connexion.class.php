@@ -25,6 +25,10 @@ class Connexion {
 
         //Vérification que le pseudo et le pass entré existe dans la base de donnée
         if($resOk){
+            //Ouverture d'une session pour la personne connecté
+            session_start();
+            //On stock ses données dans une variable superglboale : $_SESSION
+            $_SESSION["auth"]["pseudo"]; 
             header("Location:../admin/vetements.php");
         }else{
             echo"Erreur";

@@ -1,4 +1,10 @@
 <?php 
+//Vérification qu'il y une session de démarée
+require_once("../authentification/verification.php");
+
+//Démmarage de la session pour l'employé qui c'est connecté
+session_start();
+
 //Appel de ma connection et de mes différentes class
 require_once("connect.php");
 require_once("../Vetement.class.php");
@@ -17,7 +23,8 @@ $data = $requete->affiche_donnees();
 require_once("../partials/header.php");
 
 ?>
-
+            
+<h1>Bonjour <?php echo $_SESSION["auth"]["pseudo"]; ?>, bienvenue sur la page d'administration</h1>
 <h1 class="h2">Listes des produits disponible</h1>
 <br>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Nouveau produit</button>
