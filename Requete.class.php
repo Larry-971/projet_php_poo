@@ -102,8 +102,9 @@ class Requete {
         
     } //Fin de la méthode
 
-    /************************Méthode pour mise à jour ***************************/
-    public function maj(){
+    /************************Méthode pour afficher les données de maj ***************************/
+
+    public function maj_affiche(){
 
         if(isset($_GET["Id"])){
             $id = $_GET["Id"];
@@ -114,51 +115,57 @@ class Requete {
             $donnees = $res->fetch();
 
             return $donnees;
-        
-            //MAJ
-            if(isset($_POST["mettre_a_jour"])){
-                if(isset($_POST)){
-
-                    $file_name = $_FILES["photo"]["name"]; // --> recupère le nom de la photo
-                    $tmp_name = $_FILES["photo"]["tmp_name"]; // --> recupère le chemin de stockage temporaire
-                    $destination = "images/$file_name"; // --> nouveau chemin de stockage de l'image
-
-                    //on va déplacer l'image de l'emplacement temporaire à notre dossier image
-                    move_uploaded_file($file_name, $destination); //(nom de l'emplacement temporaire, la destination)
-
-                    //$id = (int)htmlspecialchars(trim(addslashes($_POST["Id"])));
-                    $nom = htmlspecialchars(trim(addslashes($_POST["nom"])));
-                    $modele = htmlspecialchars(trim(addslashes($_POST["modele"])));
-                    $marque = htmlspecialchars(trim(addslashes($_POST["marque"])));
-                    $oldphoto = trim(addslashes($_POST["oldphoto"]));
-                    //Transtypage du prix en (double) comme dans la base de donnée
-                    $prix = (double)htmlspecialchars(trim(addslashes($_POST["prix"])));
-                    $pays = htmlspecialchars(trim(addslashes($_POST["pays"])));
-                    $description = trim(addslashes($_POST["description"]));
-                    
-                    // Traitement pour image par défaut
-                    $photo = "";
-
-                    if($file_name){
-                        $photo = $file_name;
-                    }else{
-                        $photo = $oldphoto;
-                    }
-                }
-                //Requete pour mise à jour
-                $sql = "UPDATE vetements SET Nom = ?, Modele = ?, Marque = ?, Photo = ?, Prix = ?, Pays = ?, Description = ? WHERE Id = ?";
-                $res = $this->connect->prepare($sql);
-                $ok = $res->execute(array($nom, $modele, $marque, $photo, $prix, $pays, $description, $id));
-                if($ok){    
-                    var_dump($_POST);
-                    var_dump($_FILES);
-                }else{
-                    echo"Erreur lors de la mise à jour...";
-                }
-            }
         }
 
     }//Fin méthode
+
+    /************************* Méthode de mise à jour des donées ***********************/
+    
+    public function maj_vetement(){
+        
+        if(isset($_POST["mettre_a_jour"])){
+        
+            if(isset($_POST)){
+
+                $file_name = $_FILES["photo"]["name"]; // --> recupère le nom de la photo
+                $tmp_name = $_FILES["photo"]["tmp_name"]; // --> recupère le chemin de stockage temporaire
+                $destination = "images/$file_name"; // --> nouveau chemin de stockage de l'image
+
+                //on va déplacer l'image de l'emplacement temporaire à notre dossier image
+                move_uploaded_file($file_name, $destination); //(nom de l'emplacement temporaire, la destination)
+
+                $id = (int)htmlspecialchars(trim(addslashes($_POST["id"])));
+                $nom = htmlspecialchars(trim(addslashes($_POST["nom"])));
+                $modele = htmlspecialchars(trim(addslashes($_POST["modele"])));
+                $marque = htmlspecialchars(trim(addslashes($_POST["marque"])));
+                $oldphoto = trim(addslashes($_POST["oldphoto"]));
+                //Transtypage du prix en (double) comme dans la base de donnée
+                $prix = (double)htmlspecialchars(trim(addslashes($_POST["prix"])));
+                $pays = htmlspecialchars(trim(addslashes($_POST["pays"])));
+                $description = trim(addslashes($_POST["description"]));
+                
+                // Traitement pour image par défaut
+                $photo = "";
+
+                if($file_name){
+                    $photo = $file_name;
+                }else{
+                    $photo = $oldphoto;
+                }
+            }
+            //Requete pour mise à jour
+            $sql = "UPDATE vetements SET Nom = ?, Modele = ?, Marque = ?, Photo = ?, Prix = ?, Pays = ?, Description = ? WHERE Id = ?";
+            $res = $this->connect->prepare($sql);
+            $ok = $res->execute(array($nom, $modele, $marque, $photo, $prix, $pays, $description, $id));
+            if($ok){    
+                header("Location:vetements.php");
+            }else{
+                echo"Erreur lors de la mise à jour...";
+            }
+        }
+    }
+
+
 
 } //Fin class Requete
 
