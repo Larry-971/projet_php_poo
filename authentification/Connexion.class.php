@@ -32,16 +32,8 @@ class Connexion {
             $_SESSION["auth"]["pass"] = $pass;
              
             header("Location:../admin/vetements.php");
-        }else{
-            echo"Erreur";
         }
-        
-    
-        
-            
-            
-        
-        
+           
     }
     
 }
