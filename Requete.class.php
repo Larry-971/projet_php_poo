@@ -33,7 +33,7 @@ class Requete {
             $vetement->setPhoto($rows["Photo"]);
             $vetement->setPrix($rows["Prix"]);
             $vetement->setPays($rows["Pays"]);
-            $vetement->setDescription($rows["Description"]);
+            $vetement->setDescription(substr($rows["Description"],0,20));
 
             //Je met mes Vetement dans mon tableau de donnees
             array_push($donnees, $vetement);

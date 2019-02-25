@@ -3,7 +3,6 @@
 // Sécurisation du fichier vetements.php (si la session n'existe pas on y a pas accès)
 require_once("../authentification/verification.php");
 
-var_dump($_SESSION);
 //Appel de ma connection et de mes différentes class
 require_once("connect.php");
 require_once("../Vetement.class.php");

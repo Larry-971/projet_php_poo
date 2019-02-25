@@ -1,4 +1,7 @@
 <?php
+// Sécurisation de la page (si la session n'existe pas on y a pas accès)
+require_once("../authentification/verification.php");
+
 //Appel de ma connection et de mes différentes class
 require_once("connect.php");
 require_once("../Vetement.class.php");
