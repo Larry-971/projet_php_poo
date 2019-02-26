@@ -1,6 +1,6 @@
 /* connexion.php */
 body{
-    background-image: url("images/istockphoto-656954776-1024x1024.jpg");
+    background-image: url("images/background-2687925_960_720.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -13,6 +13,10 @@ body{
 }
 span{
     color: red;
+}
+h2{
+    position: relative;
+    top: 100px;
 }
 em{
     color: rgb(68, 68, 68);

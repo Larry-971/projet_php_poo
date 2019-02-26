@@ -20,8 +20,8 @@ if(isset($_POST["mettre_a_jour"])){
 
 require_once("../partials/header.php");
 ?>
-
-<h2>Mise à jour du produit : <?php echo $data["Nom"] ." " . $data["Marque"];  ?></h2>
+<br>            
+<h2>Mise à jour du produit : <?php echo $data["Nom"] ." de chez " . $data["Marque"];  ?></h2>
 <form action="" method="POST" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-12">
@@ -76,7 +76,7 @@ require_once("../partials/header.php");
     <?php  ?>     
     <button type="submit" class="btn btn-success btn-lg btn-block" name="mettre_a_jour" >Mettre à jour</button>
 </form>
-
+<br>
 <?php
 require_once("../partials/footer.php");
 ?>

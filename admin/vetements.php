@@ -18,7 +18,7 @@ $data = $requete->affiche_donnees();
 require_once("../partials/header.php");
 
 ?>
-            
+<br>            
 <h1 class="h2">Bonjour <?php echo $_SESSION["auth"]["pseudo"]; ?>, bienvenue sur la page d'administration</h1>
 <h1 class="h3">Listes des produits disponible en stock : </h1>
 <br>

@@ -31,10 +31,10 @@
     </style>
 </head>
 <body>  
-    <nav class="navbar navbar-light bg-light">
-        <a class="nav-link" href="../index.php">Accueil</a>
-        <a class="nav-link" href="../admin/vetements.php">Vêtements</a>
-        <a class="nav-link" href="../authentification/deconnexion.php">Déconnexion</a>
+    <nav class="navbar navbar-light bg-dark ">
+        <a class="nav-link text-white" href="../index.php">Accueil</a>
+        <a class="nav-link text-white" href="../admin/vetements.php">Vêtements</a>
+        <a class="nav-link text-white" href="../authentification/deconnexion.php">Déconnexion</a>
     </nav>
     <div id="banniere">
         <img src="../images\banniere_vetements_ancenis.png" alt="" srcset="">
