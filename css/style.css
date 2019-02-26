@@ -1,0 +1,20 @@
+/* connexion.php */
+body{
+    background-image: url("images/istockphoto-656954776-1024x1024.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.offset-md-3{
+    margin-top: 150px;
+}
+.offset-md-3 {
+    margin-left: 33%!important;
+}
+span{
+    color: red;
+}
+em{
+    color: rgb(68, 68, 68);
+}
+

@@ -19,13 +19,14 @@ require_once("../partials/header.php");
 
 ?>
             
-<h1>Bonjour <?php echo $_SESSION["auth"]["pseudo"]; ?>, bienvenue sur la page d'administration</h1>
-<h1 class="h2">Listes des produits disponible</h1>
+<h1 class="h2">Bonjour <?php echo $_SESSION["auth"]["pseudo"]; ?>, bienvenue sur la page d'administration</h1>
+<h1 class="h3">Listes des produits disponible en stock : </h1>
 <br>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Nouveau produit</button>
+<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Nouveau produit</button>
+<br><br>
 <!-- Affichage de mes données -->
-<table class= "table table-striped">
-    <thead>
+<table class= "table table-striped table-hover">
+    <thead  class="thead-dark">
         <th>Id</th>
         <th>Nom</th>
         <th>Modele</th>
@@ -53,7 +54,8 @@ require_once("../partials/header.php");
                 </td>
             </tr>
         <?php } ?>
-    </tbody>    
+    </tbody> 
+    <tfoot class="tfoot-dark"></tfoot> 
 </table>
 
 <!-- Modal : Formulaire d'ajout de nouveau produit -->

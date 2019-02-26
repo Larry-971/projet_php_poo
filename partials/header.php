@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Liste des vêtements disponible</title>
+    
     <!-- Bootstrapp 4 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -15,11 +16,28 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <!-- Style -->
+    <style>
+        #banniere{
+            width : 100%;
+        }
+        #banniere>img{
+            width: 100%;
+            height: max-content;
+        }
+        td>img{
+            height : 100px;
+        }
+    </style>
 </head>
-<body>
+<body>  
+    <nav class="navbar navbar-light bg-light">
+        <a class="nav-link" href="../index.php">Accueil</a>
+        <a class="nav-link" href="../admin/vetements.php">Vêtements</a>
+        <a class="nav-link" href="../authentification/deconnexion.php">Déconnexion</a>
+    </nav>
+    <div id="banniere">
+        <img src="../images\banniere_vetements_ancenis.png" alt="" srcset="">
+    </div>
+
     <div class="container">
-    <ul class="nav nav-pills nav-justified">
-        <li class="nav-item">
-            <a class="nav-link" href="../authentification/deconnexion.php">Déconnexion</a>
-        </li>
-    </ul>
