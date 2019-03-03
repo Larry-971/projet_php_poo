@@ -59,18 +59,17 @@ require_once("partials_front/header.php");
 <br>
 
 <!-- Carte de produits -->
-<div class="d-flex justify-content-around">
-    <?php foreach($data as $d){ ?>
-        <div class="d-inline-flex justify-content-around">
-            <div class="card" style="width: 16rem;">
-                <img src="images/<?php echo $d->getPhoto(); ?>" class="card-img-top" alt="image_produit" height="200">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $d->getNom() . " " . $d->getModele() . " : " . $d->getMarque(); ?></h5>
-                    <p class="card-text"><a href="#" class="btn btn-success btn-block"><i class="fas fa-shopping-cart"> <?php echo $d->getPrix(); ?> €</i></a></p>
-                </div>
+
+<?php foreach($data as $d){ ?>
+    <div class="d-inline-flex justify-content-around">
+        <div class="card" style="width: 16rem;">
+            <img src="images/<?php echo $d->getPhoto(); ?>" class="card-img-top" alt="image_produit" height="200">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $d->getNom() . " " . $d->getModele() . " : " . $d->getMarque(); ?></h5>
+                <p class="card-text"><a href="" class="btn btn-success btn-block"><i class="fas fa-shopping-cart"> <?php echo $d->getPrix(); ?> €</i></a></p>
             </div>
         </div>
-    <?php } ?>
-    <!-- <br> -->
-</div>
+    </div>
+<?php } ?>
+<br>
 <?php require_once("partials_front/footer.php"); ?>

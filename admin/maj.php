@@ -42,6 +42,7 @@ require_once("../partials/header.php");
                         <option selected><?php echo $data["Modele"]; ?></option>
                         <option value="Homme">Homme</option>
                         <option value="Femme">Femme</option>
+                        <option value="Bébé">Bébé</option>
                     </select>
                 </div>
             </div>

@@ -86,6 +86,7 @@ require_once("../partials/header.php");
                         <select class="custom-select" id="modele" name="modele" required>
                             <option value="Homme">Homme</option>
                             <option value="Femme">Femme</option>
+                            <option value="Bébé">Bébé</option>
                         </select>
                     </div>
                 </div>
@@ -116,9 +117,6 @@ require_once("../partials/header.php");
             </div>
             <button type="submit" class="btn btn-success btn-lg btn-block" name="enregistrer" >Enregistrer</button>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
       </div>
     </div>
   </div>
