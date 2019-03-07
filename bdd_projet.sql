@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 04 mars 2019 à 08:16
+-- Généré le :  lun. 04 mars 2019 à 08:30
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `projet_php`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Pseudo` varchar(30) NOT NULL,
+  `Email` varchar(30) NOT NULL,
+  `Pass` varchar(50) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`Id`, `Pseudo`, `Email`, `Pass`) VALUES
+(1, 'Larry', 'admin@hotmail.fr', '69e96743d5a0a03a9b3b3d6aa0945ad0'),
+(2, 'admin', '', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
